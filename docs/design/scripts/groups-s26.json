@@ -1,0 +1,73 @@
+{
+ "total": 83,
+ "under44": 82,
+ "atLeast44": 1,
+ "themeFixable": 78,
+ "themeBlocked": 4,
+ "buckets": {
+  "token-literal:h-[28px] w-[28px]": {
+   "n": 4,
+   "sizes": {
+    "36x36": 4
+   },
+   "samples": [
+    "Go back",
+    "Go forward",
+    "Show right panel (Ctrl + J)"
+   ],
+   "maxFb": 849
+  },
+  "token-driven:var": {
+   "n": 12,
+   "sizes": {
+    "40x296": 12
+   },
+   "samples": [
+    "New thread (Ctrl + Shift + O)",
+    "(unlabelled)",
+    "(unlabelled)"
+   ],
+   "maxFb": 795
+  },
+  "token-driven:spacing": {
+   "n": 20,
+   "sizes": {
+    "36x36": 14,
+    "36x278": 1,
+    "40x40": 2,
+    "32x257": 1,
+    "32x120": 1,
+    "32x53": 1
+   },
+   "samples": [
+    "New thread options",
+    "Plugins options",
+    "Skills options"
+   ],
+   "maxFb": 797
+  },
+  "bare": {
+   "n": 46,
+   "sizes": {
+    "30x202": 1,
+    "28x28": 21,
+    "28x109": 2,
+    "30x218": 1,
+    "30x248": 1,
+    "34x114": 1,
+    "14x14": 7,
+    "11x8": 1,
+    "21x21": 1,
+    "19x63": 1,
+    "19x19": 7,
+    "23x164": 2
+   },
+   "samples": [
+    "/home/hbohlen/nix",
+    "New chat: nix",
+    "Chat actions: nix"
+   ],
+   "maxFb": 358
+  }
+ }
+}

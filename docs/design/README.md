@@ -25,6 +25,25 @@ shipping a file of the same path.
 | `research/bb-theming-capabilities.md` | Verified token reference: every bb CSS custom property, its derivation, and what a theme cannot change. |
 | `research/bb-touch-target-ownership.md` | Which bb layer draws the sub-44px controls, measured on a Galaxy S26 Ultra. |
 | `agents/` | The issue-tracker, triage-label, and domain-doc conventions this effort uses. |
+| `scripts/` | The measurement scripts that produced `research/bb-touch-target-ownership.md`, plus their captured output. All are rerunnable against a running bb. |
+
+## Reproducing the touch-target audit
+
+The audit needs a running bb and a CDP websocket. Start bb, note the port, then
+edit the `PAGE_LIST` constant at the top of each script to match:
+
+```bash
+cd docs/design/scripts
+python measure-s26.py > s26.json   # viewport, tokens, and per-control sizes
+python group-s26.py                # buckets the undersized controls by cause
+python owner-s26.py                # locates the controls with no sizing class
+```
+
+`measure-s26.py` forces touch emulation through `Emulation.setTouchEmulationEnabled`
+because a device profile alone leaves `navigator.maxTouchPoints` at 0, which
+makes `(pointer: coarse)` false and every measurement a desktop size wearing a
+mobile user agent. The CDP websocket needs `suppress_origin=True` or Chrome
+rejects the connection with a 403.
 
 ## Where the decisions live
 

@@ -1,0 +1,296 @@
+{
+ "viewport": {
+  "w": 412,
+  "h": 891,
+  "dpr": 3.5,
+  "maxTouchPoints": 5,
+  "pointerCoarse": true,
+  "widthUnder48rem": true
+ },
+ "tokens": {
+  "sidebarControl": "36px",
+  "sidebarRowHeight": "1.75rem",
+  "textBase": "1rem",
+  "textSm": ".9375rem",
+  "textXs": ".875rem",
+  "text2xs": ".6875rem",
+  "spacing": ".25rem",
+  "iconStrokeWidth": "1.75",
+  "safeAreaBottom": ""
+ },
+ "counts": {
+  "visible": 83,
+  "under44": 82,
+  "atLeast44": 1,
+  "shell": 81,
+  "shellUnder44": 80,
+  "plugin": 2,
+  "pluginUnder44": 2,
+  "hardcodedLiteral": 36
+ },
+ "shellSizes": {
+  "36x36": 16,
+  "40x296": 12,
+  "36x288": 1,
+  "30x212": 1,
+  "28x28": 21,
+  "28x109": 2,
+  "30x228": 1,
+  "30x258": 1,
+  "34x114": 1,
+  "40x40": 2,
+  "32x257": 1,
+  "32x120": 1,
+  "32x53": 1,
+  "44x44": 1,
+  "14x14": 7,
+  "11x8": 1,
+  "21x21": 1,
+  "19x63": 1,
+  "19x19": 7,
+  "23x164": 2
+ },
+ "topBand": [
+  [
+   "Go back",
+   "36x36",
+   849
+  ],
+  [
+   "Go forward",
+   "36x36",
+   849
+  ],
+  [
+   "New thread (Ctrl + Shift + O)",
+   "296x40",
+   795
+  ],
+  [
+   "New thread options",
+   "36x36",
+   797
+  ],
+  [
+   "",
+   "296x40",
+   753
+  ],
+  [
+   "Plugins options",
+   "36x36",
+   755
+  ],
+  [
+   "",
+   "296x40",
+   711
+  ],
+  [
+   "Skills options",
+   "36x36",
+   713
+  ],
+  [
+   "",
+   "296x40",
+   669
+  ],
+  [
+   "Automations panel options",
+   "36x36",
+   671
+  ],
+  [
+   "",
+   "296x40",
+   627
+  ],
+  [
+   "Agentation panel options",
+   "36x36",
+   629
+  ],
+  [
+   "Show right panel (Ctrl + J)",
+   "36x36",
+   849
+  ],
+  [
+   "Toggle sidebar (Ctrl + \\)",
+   "36x36",
+   849
+  ]
+ ],
+ "composer": [
+  [
+   "Chat actions",
+   "28x28",
+   62
+  ],
+  [
+   "",
+   "109x28",
+   30
+  ],
+  [
+   "Remote access",
+   "36x36",
+   8
+  ],
+  [
+   "Provider usage",
+   "36x36",
+   8
+  ],
+  [
+   "Report a bug",
+   "36x36",
+   8
+  ],
+  [
+   "Prompt actions",
+   "40x40",
+   61
+  ],
+  [
+   "Provider, model and reasoning (Ctr",
+   "257x32",
+   65
+  ],
+  [
+   "Start voice input",
+   "40x40",
+   61
+  ],
+  [
+   "Projects & Sections",
+   "120x32",
+   16
+  ],
+  [
+   "Permission mode",
+   "53x32",
+   16
+  ],
+  [
+   "Start feedback mode",
+   "44x44",
+   20
+  ],
+  [
+   "",
+   "14x14",
+   35
+  ],
+  [
+   "",
+   "14x14",
+   35
+  ],
+  [
+   "",
+   "14x14",
+   35
+  ],
+  [
+   "",
+   "14x14",
+   35
+  ],
+  [
+   "",
+   "8x11",
+   37
+  ],
+  [
+   "",
+   "14x14",
+   35
+  ],
+  [
+   "",
+   "14x14",
+   35
+  ],
+  [
+   "",
+   "14x14",
+   35
+  ]
+ ],
+ "literalGroups": {
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active h-[28px] w-[28px] max-md:pointer-coarse:h-[36px] max-md:pointer-coarse:w-[36px] [&_[data-icon-root]]:size-[16px] max-md:pointer-coarse:[&_[data-icon-root]]:size-[20px]": {
+   "n": 4,
+   "size": "36x36",
+   "sample": "Go back",
+   "fb": 849
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active h-[var(--bb-sidebar-row-height)] max-md:pointer-coarse:h-[var(--bb-sidebar-row-height-coarse)] max-md:pointer-coarse:[&_[data-icon-root]]:size-5": {
+   "n": 11,
+   "size": "296x40",
+   "sample": "New thread (Ctrl + Shift + O)",
+   "fb": 795
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 after:content-[''] data-[state=open]:text-muted-foreground data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active": {
+   "n": 11,
+   "size": "36x36",
+   "sample": "New thread options",
+   "fb": 797
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active h-[var(--bb-sidebar-row-height)] max-md:pointer-coarse:h-[var(--bb-sidebar-row-height-coarse)] max-md:pointer-coarse:[&_[data-icon-root]]:size-5 [&>[data-icon-root]]:size-3.5 data-[state=open]:text-sidebar-foreground": {
+   "n": 1,
+   "size": "296x40",
+   "sample": "More sidebar navigation",
+   "fb": 333
+  },
+  "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active": {
+   "n": 1,
+   "size": "288x36",
+   "sample": "",
+   "fb": 264
+  },
+  "transition-[width,height,padding] data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>[data-icon-root]]:shrink-0 [&>[data-icon-root]]:size-4 max-md:pointer-coarse:[&>[data-icon-root]]:size-5 [&>[data-icon-root]]:opacity-80": {
+   "n": 3,
+   "size": "36x36",
+   "sample": "Remote access",
+   "fb": 8
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active data-[state=open]:text-subtle-foreground/75": {
+   "n": 1,
+   "size": "40x40",
+   "sample": "Prompt actions",
+   "fb": 61
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active": {
+   "n": 2,
+   "size": "257x32",
+   "sample": "Provider, model and reasoning (Ctr",
+   "fb": 65
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0": {
+   "n": 1,
+   "size": "40x40",
+   "sample": "Start voice input",
+   "fb": 61
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active data-[state=open]:text-warning-text": {
+   "n": 1,
+   "size": "53x32",
+   "sample": "Permission mode",
+   "fb": 16
+  }
+ },
+ "pluginRows": [
+  [
+   "Remote access",
+   "36x36",
+   8
+  ],
+  [
+   "Provider usage",
+   "36x36",
+   8
+  ]
+ ]
+}
