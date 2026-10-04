@@ -939,18 +939,18 @@ describe("Navigation plugin in the sidebar navigation region", () => {
       "checkbox",
     );
     expect(
-      firstCustomizeRow?.classList.contains("max-md:pointer-coarse:h-9"),
+      firstCustomizeRow?.classList.contains("max-md:pointer-coarse:h-11"),
     ).toBe(true);
     expect(
-      firstDragHandle?.classList.contains("max-md:pointer-coarse:h-9"),
+      firstDragHandle?.classList.contains("max-md:pointer-coarse:h-11"),
     ).toBe(true);
     expect(
-      firstDragHandle?.classList.contains("max-md:pointer-coarse:w-9"),
+      firstDragHandle?.classList.contains("max-md:pointer-coarse:w-11"),
     ).toBe(true);
     expect(
       firstCheckbox
         .closest("label")
-        ?.classList.contains("max-md:pointer-coarse:h-9"),
+        ?.classList.contains("max-md:pointer-coarse:h-11"),
     ).toBe(true);
 
     fireEvent.click(screen.getByRole("button", { name: "Done" }));

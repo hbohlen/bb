@@ -92,7 +92,7 @@ function MessageActionIcon({
 }
 
 const DESKTOP_ACTION_WIDTH_PX = 20;
-const TOUCH_ACTION_WIDTH_PX = 28;
+const TOUCH_ACTION_WIDTH_PX = 44;
 const ACTION_ROW_GAP_PX = 8;
 const OVERFLOW_TRIGGER_GAP_PX = 4;
 const OVERFLOW_TRIGGER_TIGHTEN_CLASS = "-ml-1";
@@ -181,7 +181,7 @@ const ACTION_BUTTON_CLASS =
 const HOVER_REVEAL_CLASS =
   "opacity-0 transition-opacity group-hover/message:opacity-100 group-focus-within/message:opacity-100";
 const MOBILE_INLINE_ACTION_CLASS =
-  "max-md:pointer-coarse:size-7 max-md:pointer-coarse:opacity-100 max-md:pointer-coarse:disabled:opacity-40 max-md:pointer-coarse:[&_[data-icon-root]]:size-4";
+  "max-md:pointer-coarse:size-11 max-md:pointer-coarse:opacity-100 max-md:pointer-coarse:disabled:opacity-40 max-md:pointer-coarse:[&_[data-icon-root]]:size-6";
 const MOBILE_OVERFLOW_ACTION_CLASS = "max-md:pointer-coarse:hidden";
 const ACTION_TOOLTIP_SIDE = "bottom";
 const MENU_CONTENT_WIDTH_CLASS = "max-w-[min(16rem,calc(100vw-1rem))]";
@@ -446,7 +446,7 @@ export function MessageActionBar({
     <TooltipProvider delayDuration={300}>
       <div
         ref={slotRef}
-        className={cn(slotClass, "h-5 max-md:pointer-coarse:h-7")}
+        className={cn(slotClass, "h-5 max-md:pointer-coarse:h-11")}
       >
         <div className={rowClass} data-menu-open={isMenuOpen ? "" : undefined}>
           {isCompactTouch ? (

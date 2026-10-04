@@ -881,11 +881,11 @@ describe("EnvironmentPickerUI multi-machine menu", () => {
       );
       expect(content?.children[0]?.classList).toContain("size-1.5");
       expect(content?.children[0]?.classList).toContain(
-        "max-md:pointer-coarse:size-2",
+        "max-md:pointer-coarse:size-4",
       );
       expect(content?.children[1]?.classList).toContain("size-3.5");
       expect(content?.children[1]?.classList).toContain(
-        "max-md:pointer-coarse:size-5",
+        "max-md:pointer-coarse:size-6",
       );
       expect(
         content?.children[1]?.getAttribute("data-machine-target-icon"),

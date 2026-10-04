@@ -32,12 +32,16 @@
     --secondary-panel-width-mobile: min(76vw, 320px);
     --bb-sidebar-control-size: 28px;
     --bb-sidebar-control-icon-size: 16px;
+    /* Minimum comfortable touch target on a coarse pointer. Every coarse-pointer
+       size in the app resolves to this floor, so a control cannot be sized below
+       it by a component that forgot to opt in. */
+    --bb-touch-target-min: 44px;
   }
 
   @media (width < 48rem) and (pointer: coarse) {
     :root {
-      --bb-sidebar-control-size: 36px;
-      --bb-sidebar-control-icon-size: 20px;
+      --bb-sidebar-control-size: var(--bb-touch-target-min);
+      --bb-sidebar-control-icon-size: 24px;
     }
   }
 

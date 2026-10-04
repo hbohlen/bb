@@ -43,12 +43,12 @@ const SIDEBAR_CONTROL_BUTTON_BASE_CLASS = `${SIDEBAR_CONTROL_STATE_CLASS} relati
 
 export const SIDEBAR_CONTROL_BUTTON_CLASS = `${COARSE_POINTER_ROW_ACTION_SIZE_CLASS} ${SIDEBAR_CONTROL_BUTTON_BASE_CLASS}`;
 
-export const SIDEBAR_CONTROL_PRIMARY_BUTTON_CLASS = `h-7 w-7 max-md:pointer-coarse:h-9 max-md:pointer-coarse:w-8 ${SIDEBAR_CONTROL_BUTTON_BASE_CLASS}`;
+export const SIDEBAR_CONTROL_PRIMARY_BUTTON_CLASS = `h-7 w-7 max-md:pointer-coarse:h-11 max-md:pointer-coarse:w-11 ${SIDEBAR_CONTROL_BUTTON_BASE_CLASS}`;
 
 export const SIDEBAR_CONTROL_PAIR_GAP_CLASS = `${SIDEBAR_HOVER_ACTIONS_GAP_CLASS} max-md:pointer-coarse:gap-0`;
 
 export const SIDEBAR_CONTROL_PAIR_SIZE_CLASS =
-  "h-7 w-[3.625rem] max-md:pointer-coarse:h-9 max-md:pointer-coarse:w-[4.25rem]";
+  "h-7 w-[3.625rem] max-md:pointer-coarse:h-11 max-md:pointer-coarse:w-[5.5rem]";
 
 export function getSidebarThreadRowPaddingLeft(depth: number): number {
   return (
