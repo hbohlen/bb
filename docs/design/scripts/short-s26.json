@@ -1,0 +1,70 @@
+{
+ "coarseActive": true,
+ "under44": 15,
+ "groups": [
+  [
+   "(unlabelled) | 380x20 | coarse=none",
+   {
+    "n": 7,
+    "fb": 1273,
+    "tid": "-"
+   }
+  ],
+  [
+   "(unlabelled) | 364x22 | coarse=none",
+   {
+    "n": 2,
+    "fb": 322,
+    "tid": "-"
+   }
+  ],
+  [
+   "(unlabelled) | 296x24 | coarse=none",
+   {
+    "n": 1,
+    "fb": 550,
+    "tid": "-"
+   }
+  ],
+  [
+   "Collapse Threads section | 24x24 | coarse=none",
+   {
+    "n": 1,
+    "fb": 550,
+    "tid": "-"
+   }
+  ],
+  [
+   "(unlabelled) | 380x22 | coarse=none",
+   {
+    "n": 1,
+    "fb": 474,
+    "tid": "-"
+   }
+  ],
+  [
+   "Scroll to latest event | 32x32 | coarse=none",
+   {
+    "n": 1,
+    "fb": 251,
+    "tid": "-"
+   }
+  ],
+  [
+   "Changed files: Uncommitted, 30 | 292x28 | coarse=none",
+   {
+    "n": 1,
+    "fb": 202,
+    "tid": "-"
+   }
+  ],
+  [
+   "Provider, model and reasoning  | 213x32 | coarse=none",
+   {
+    "n": 1,
+    "fb": 75,
+    "tid": "-"
+   }
+  ]
+ ]
+}

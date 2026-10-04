@@ -1,9 +1,9 @@
-"""Locate bb's 46 "bare" undersized controls and name the component that draws each.
+"""Locate the "bare" undersized controls and name the component that draws each.
 
-These carry no h-/w-/size-/px- class at all, so their size comes from content or
-a parent. To attribute them I read each element's React fiber via the devtools
-hook when available, and otherwise fall back to the nearest ancestor carrying a
-recognisable data attribute plus its DOM path.
+These carry no px literal, no CSS var, and no spacing utility, so their size
+comes from content or a parent. To attribute them I read each element's React
+fiber via the devtools hook when available, and otherwise fall back to the
+nearest ancestor carrying a recognisable data attribute plus its DOM path.
 
 The output answers BB-5's open question: which component owns the residue that
 no theme token can move.
@@ -50,13 +50,22 @@ class CDP:
 
 PROBE = r"""
 (() => {
+  const VAR = /var\(--/;
+  const PX_UTIL = /\b(h|w)-\[(\d+)px\]/;
+  const SPACING_UTIL = /\b(h|w)-(\d+(?:\.\d+)?)\b/;
+
   const out = [];
   for (const b of document.querySelectorAll("button,[role=button]")) {
     const r = b.getBoundingClientRect();
     if (r.width === 0 || r.height === 0 || r.height >= 44) continue;
     const cls = (b.className || "").split(/\s+/).filter(Boolean);
-    const sized = cls.filter(c => /^(h-|w-|size-|p[xytblr]?-)/.test(c));
-    if (sized.length) continue;               // only the bare bucket
+    // The bucket test has to match group-s26.py's cause() exactly. An earlier
+    // version skipped anything matching ^(h-|w-|size-|p-), which swept up
+    // size-5 and px-2 rows and reported zero bare controls while group-s26.py
+    // counted 25 of them.
+    if (cls.some(c => PX_UTIL.test(c))) continue;
+    if (cls.some(c => VAR.test(c))) continue;
+    if (cls.some(c => SPACING_UTIL.test(c))) continue;
 
     // Nearest ancestor that names a component-ish region.
     let node = b, region = "unknown";

@@ -1,0 +1,295 @@
+{
+ "n": 29,
+ "controls": [
+  {
+   "label": "",
+   "w": 296,
+   "h": 24,
+   "fb": 570,
+   "region": "data-sidebar=group-label",
+   "path": "div:1>div>div>div[group-label]:1",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Collapse Threads section",
+   "w": 24,
+   "h": 24,
+   "fb": 570,
+   "region": "data-sidebar=group-label",
+   "path": "div>div[group-label]:1>span:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Message actions",
+   "w": 28,
+   "h": 28,
+   "fb": 1297,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 20,
+   "fb": 1269,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:2>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Message actions",
+   "w": 28,
+   "h": 28,
+   "fb": 1184,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 20,
+   "fb": 1156,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:4>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Message actions",
+   "w": 28,
+   "h": 28,
+   "fb": 1071,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 20,
+   "fb": 1043,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:6>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Message actions",
+   "w": 28,
+   "h": 28,
+   "fb": 958,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 20,
+   "fb": 930,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:8>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Message actions",
+   "w": 28,
+   "h": 28,
+   "fb": 846,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 20,
+   "fb": 818,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:10>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Message actions",
+   "w": 28,
+   "h": 28,
+   "fb": 733,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 20,
+   "fb": 705,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:12>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Copy message",
+   "w": 28,
+   "h": 28,
+   "fb": 620,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button:1",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Reply in side chat",
+   "w": 28,
+   "h": 28,
+   "fb": 620,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button:2",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Message actions",
+   "w": 28,
+   "h": 28,
+   "fb": 620,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div>button:3",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 590,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:14>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 560,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:15>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 530,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:16>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 500,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:17>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 470,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:18>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 20,
+   "fb": 442,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:19>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 412,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:20>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 382,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:21>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 352,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:22>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 322,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:23>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "",
+   "w": 380,
+   "h": 22,
+   "fb": 292,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div:24>div>div:1>button",
+   "pe": "auto",
+   "display": "flex"
+  },
+  {
+   "label": "Scroll to latest event",
+   "w": 32,
+   "h": 32,
+   "fb": 247,
+   "region": "data-testid=app-layout-content-shell",
+   "path": "div>div:2>div:1>button",
+   "pe": "none",
+   "display": "flex"
+  }
+ ]
+}

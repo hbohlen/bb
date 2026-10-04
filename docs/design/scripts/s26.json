@@ -8,7 +8,7 @@
   "widthUnder48rem": true
  },
  "tokens": {
-  "sidebarControl": "36px",
+  "sidebarControl": "44px",
   "sidebarRowHeight": "1.75rem",
   "textBase": "1rem",
   "textSm": ".9375rem",
@@ -19,277 +19,354 @@
   "safeAreaBottom": ""
  },
  "counts": {
-  "visible": 83,
-  "under44": 82,
-  "atLeast44": 1,
-  "shell": 81,
-  "shellUnder44": 80,
-  "plugin": 2,
-  "pluginUnder44": 2,
-  "hardcodedLiteral": 36
+  "visible": 55,
+  "under44": 15,
+  "atLeast44": 40,
+  "shell": 54,
+  "shellUnder44": 15,
+  "plugin": 1,
+  "pluginUnder44": 0,
+  "hasCoarseOverride": 36,
+  "hardcodedLiteral": 39
  },
  "shellSizes": {
-  "36x36": 16,
-  "40x296": 12,
-  "36x288": 1,
-  "30x212": 1,
-  "28x28": 21,
-  "28x109": 2,
-  "30x228": 1,
-  "30x258": 1,
-  "34x114": 1,
-  "40x40": 2,
-  "32x257": 1,
-  "32x120": 1,
-  "32x53": 1,
-  "44x44": 1,
-  "14x14": 7,
-  "11x8": 1,
-  "21x21": 1,
-  "19x63": 1,
-  "19x19": 7,
-  "23x164": 2
+  "44x44": 24,
+  "44x296": 6,
+  "24x296": 1,
+  "24x24": 1,
+  "47x412": 1,
+  "44x25": 2,
+  "44x69": 1,
+  "20x380": 7,
+  "22x380": 1,
+  "22x364": 2,
+  "32x32": 1,
+  "28x294": 1,
+  "44x40": 2,
+  "32x213": 1,
+  "44x219": 1,
+  "44x59": 1,
+  "44x76": 1
  },
  "topBand": [
   [
    "Go back",
-   "36x36",
-   849
+   "44x44",
+   845
   ],
   [
    "Go forward",
-   "36x36",
-   849
+   "44x44",
+   845
   ],
   [
    "New thread (Ctrl + Shift + O)",
-   "296x40",
-   795
+   "296x44",
+   791
   ],
   [
    "New thread options",
-   "36x36",
-   797
+   "44x44",
+   791
   ],
   [
    "",
-   "296x40",
-   753
+   "296x44",
+   745
   ],
   [
    "Plugins options",
-   "36x36",
-   755
+   "44x44",
+   745
   ],
   [
    "",
-   "296x40",
-   711
+   "296x44",
+   699
   ],
   [
    "Skills options",
-   "36x36",
-   713
+   "44x44",
+   699
   ],
   [
    "",
-   "296x40",
-   669
+   "296x44",
+   653
   ],
   [
    "Automations panel options",
-   "36x36",
-   671
+   "44x44",
+   653
+  ],
+  [
+   "More sidebar navigation",
+   "296x44",
+   607
+  ],
+  [
+   "Scroll to top",
+   "412x47",
+   844
+  ],
+  [
+   "Thread actions",
+   "44x44",
+   845
+  ],
+  [
+   "Open workspace in Default App (Ctr",
+   "25x44",
+   845
+  ],
+  [
+   "Choose another app to open workspa",
+   "25x44",
+   845
   ],
   [
    "",
-   "296x40",
-   627
+   "69x44",
+   845
   ],
   [
-   "Agentation panel options",
-   "36x36",
-   629
+   "Close pane",
+   "44x44",
+   845
   ],
   [
    "Show right panel (Ctrl + J)",
-   "36x36",
-   849
+   "44x44",
+   845
+  ],
+  [
+   "Message actions",
+   "44x44",
+   1302
+  ],
+  [
+   "",
+   "380x20",
+   1274
+  ],
+  [
+   "Message actions",
+   "44x44",
+   1173
+  ],
+  [
+   "",
+   "380x20",
+   1145
+  ],
+  [
+   "Message actions",
+   "44x44",
+   1020
+  ],
+  [
+   "",
+   "380x20",
+   992
+  ],
+  [
+   "Message actions",
+   "44x44",
+   892
+  ],
+  [
+   "",
+   "380x20",
+   864
+  ],
+  [
+   "Message actions",
+   "44x44",
+   738
+  ],
+  [
+   "",
+   "380x20",
+   710
+  ],
+  [
+   "Message actions",
+   "44x44",
+   634
+  ],
+  [
+   "",
+   "380x20",
+   606
   ],
   [
    "Toggle sidebar (Ctrl + \\)",
-   "36x36",
-   849
+   "44x44",
+   845
   ]
  ],
  "composer": [
   [
-   "Chat actions",
-   "28x28",
-   62
-  ],
-  [
-   "",
-   "109x28",
-   30
-  ],
-  [
-   "Remote access",
-   "36x36",
-   8
-  ],
-  [
    "Provider usage",
-   "36x36",
+   "44x44",
    8
   ],
   [
-   "Report a bug",
-   "36x36",
+   "More footer actions",
+   "44x44",
    8
   ],
   [
    "Prompt actions",
-   "40x40",
-   61
-  ],
-  [
-   "Provider, model and reasoning (Ctr",
-   "257x32",
-   65
+   "40x44",
+   69
   ],
   [
    "Start voice input",
-   "40x40",
-   61
+   "40x44",
+   69
   ],
   [
-   "Projects & Sections",
-   "120x32",
+   "Stop run",
+   "44x44",
+   69
+  ],
+  [
+   "Thread details: design/one-handed-",
+   "219x44",
    16
   ],
   [
    "Permission mode",
-   "53x32",
+   "59x44",
    16
   ],
   [
-   "Start feedback mode",
-   "44x44",
-   20
-  ],
-  [
-   "",
-   "14x14",
-   35
-  ],
-  [
-   "",
-   "14x14",
-   35
-  ],
-  [
-   "",
-   "14x14",
-   35
-  ],
-  [
-   "",
-   "14x14",
-   35
-  ],
-  [
-   "",
-   "8x11",
-   37
-  ],
-  [
-   "",
-   "14x14",
-   35
-  ],
-  [
-   "",
-   "14x14",
-   35
-  ],
-  [
-   "",
-   "14x14",
-   35
+   "Context window 26% used",
+   "76x44",
+   16
   ]
  ],
  "literalGroups": {
-  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active h-[28px] w-[28px] max-md:pointer-coarse:h-[36px] max-md:pointer-coarse:w-[36px] [&_[data-icon-root]]:size-[16px] max-md:pointer-coarse:[&_[data-icon-root]]:size-[20px]": {
-   "n": 4,
-   "size": "36x36",
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active h-[28px] w-[28px] [&_[data-icon-root]]:size-[16px]": {
+   "n": 3,
+   "size": "44x44",
    "sample": "Go back",
-   "fb": 849
+   "fb": 845
   },
-  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active h-[var(--bb-sidebar-row-height)] max-md:pointer-coarse:h-[var(--bb-sidebar-row-height-coarse)] max-md:pointer-coarse:[&_[data-icon-root]]:size-5": {
-   "n": 11,
-   "size": "296x40",
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active h-[var(--bb-sidebar-row-height)]": {
+   "n": 4,
+   "size": "296x44",
    "sample": "New thread (Ctrl + Shift + O)",
-   "fb": 795
+   "fb": 791
   },
   "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 after:content-[''] data-[state=open]:text-muted-foreground data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active": {
-   "n": 11,
-   "size": "36x36",
+   "n": 4,
+   "size": "44x44",
    "sample": "New thread options",
-   "fb": 797
+   "fb": 791
   },
-  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active h-[var(--bb-sidebar-row-height)] max-md:pointer-coarse:h-[var(--bb-sidebar-row-height-coarse)] max-md:pointer-coarse:[&_[data-icon-root]]:size-5 [&>[data-icon-root]]:size-3.5 data-[state=open]:text-sidebar-foreground": {
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active h-[var(--bb-sidebar-row-height)] [&>[data-icon-root]]:size-3.5 data-[state=open]:text-sidebar-foreground": {
    "n": 1,
-   "size": "296x40",
+   "size": "296x44",
    "sample": "More sidebar navigation",
-   "fb": 333
+   "fb": 607
   },
-  "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active": {
+  "[&>[data-icon-root]]:size-4 [&>[data-icon-root]]:shrink-0": {
    "n": 1,
-   "size": "288x36",
+   "size": "296x24",
    "sample": "",
-   "fb": 264
+   "fb": 550
   },
-  "transition-[width,height,padding] data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>[data-icon-root]]:shrink-0 [&>[data-icon-root]]:size-4 max-md:pointer-coarse:[&>[data-icon-root]]:size-5 [&>[data-icon-root]]:opacity-80": {
-   "n": 3,
-   "size": "36x36",
-   "sample": "Remote access",
+  "data-[state=open]:text-muted-foreground data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active": {
+   "n": 1,
+   "size": "24x24",
+   "sample": "Collapse Threads section",
+   "fb": 550
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:text-muted-foreground data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active": {
+   "n": 2,
+   "size": "44x44",
+   "sample": "New thread in Threads",
+   "fb": 540
+  },
+  "h-[var(--bb-sidebar-row-height)] data-[sidebar-touch-armed=true]:!bg-transparent": {
+   "n": 1,
+   "size": "296x44",
+   "sample": "",
+   "fb": 502
+  },
+  "transition-[width,height,padding] data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>[data-icon-root]]:shrink-0 [&>[data-icon-root]]:size-4 [&>[data-icon-root]]:opacity-80": {
+   "n": 2,
+   "size": "44x44",
+   "sample": "Provider usage",
    "fb": 8
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:shrink-0 data-[state=open]:hover:bg-state-active data-[state=open]:bg-state-active data-[state=open]:text-foreground h-[28px] w-[28px] [&_[data-icon-root]]:size-[16px]": {
+   "n": 1,
+   "size": "44x44",
+   "sample": "Thread actions",
+   "fb": 845
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:text-subtle-foreground/75": {
+   "n": 1,
+   "size": "25x44",
+   "sample": "Open workspace in Default App (Ctr",
+   "fb": 845
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground": {
+   "n": 1,
+   "size": "25x44",
+   "sample": "Choose another app to open workspa",
+   "fb": 845
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0": {
+   "n": 2,
+   "size": "69x44",
+   "sample": "",
+   "fb": 845
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active h-[28px] w-[28px] [&_[data-icon-root]]:size-[13px] data-[state=open]:text-subtle-foreground/75": {
+   "n": 1,
+   "size": "44x44",
+   "sample": "Close pane",
+   "fb": 845
+  },
+  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active h-[28px] w-[28px] [&_[data-icon-root]]:size-[16px] data-[state=open]:text-subtle-foreground/75": {
+   "n": 1,
+   "size": "44x44",
+   "sample": "Show right panel (Ctrl + J)",
+   "fb": 845
+  },
+  "data-[state=open]:text-foreground data-[state=open]:opacity-100": {
+   "n": 8,
+   "size": "44x44",
+   "sample": "Message actions",
+   "fb": 1302
   },
   "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active data-[state=open]:text-subtle-foreground/75": {
    "n": 1,
-   "size": "40x40",
+   "size": "40x44",
    "sample": "Prompt actions",
-   "fb": 61
+   "fb": 69
   },
   "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:text-foreground data-[state=open]:hover:bg-state-active": {
-   "n": 2,
-   "size": "257x32",
+   "n": 3,
+   "size": "213x32",
    "sample": "Provider, model and reasoning (Ctr",
-   "fb": 65
-  },
-  "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0": {
-   "n": 1,
-   "size": "40x40",
-   "sample": "Start voice input",
-   "fb": 61
+   "fb": 75
   },
   "[&_[data-icon-root]]:pointer-events-none [&_[data-icon-root]]:size-4 [&_[data-icon-root]]:shrink-0 data-[state=open]:bg-state-active data-[state=open]:hover:bg-state-active data-[state=open]:text-warning-text": {
    "n": 1,
-   "size": "53x32",
+   "size": "59x44",
    "sample": "Permission mode",
    "fb": 16
   }
  },
  "pluginRows": [
   [
-   "Remote access",
-   "36x36",
-   8
-  ],
-  [
    "Provider usage",
-   "36x36",
+   "44x44",
    8
   ]
  ]

@@ -1,26 +1,26 @@
 {
- "total": 83,
- "under44": 82,
- "atLeast44": 1,
- "themeFixable": 78,
- "themeBlocked": 4,
+ "total": 62,
+ "under44": 58,
+ "atLeast44": 4,
+ "themeFixable": 52,
+ "themeBlocked": 6,
  "buckets": {
   "token-literal:h-[28px] w-[28px]": {
-   "n": 4,
+   "n": 6,
    "sizes": {
-    "36x36": 4
+    "36x36": 6
    },
    "samples": [
     "Go back",
     "Go forward",
-    "Show right panel (Ctrl + J)"
+    "Thread actions"
    ],
    "maxFb": 849
   },
   "token-driven:var": {
-   "n": 12,
+   "n": 6,
    "sizes": {
-    "40x296": 12
+    "40x296": 6
    },
    "samples": [
     "New thread (Ctrl + Shift + O)",
@@ -30,44 +30,39 @@
    "maxFb": 795
   },
   "token-driven:spacing": {
-   "n": 20,
+   "n": 16,
    "sizes": {
-    "36x36": 14,
-    "36x278": 1,
-    "40x40": 2,
-    "32x257": 1,
-    "32x120": 1,
-    "32x53": 1
+    "36x36": 8,
+    "36x32": 1,
+    "36x25": 2,
+    "36x69": 1,
+    "40x40": 3,
+    "32x217": 1
    },
    "samples": [
     "New thread options",
     "Plugins options",
     "Skills options"
    ],
-   "maxFb": 797
+   "maxFb": 849
   },
   "bare": {
-   "n": 46,
+   "n": 30,
    "sizes": {
-    "30x202": 1,
-    "28x28": 21,
-    "28x109": 2,
-    "30x218": 1,
-    "30x248": 1,
-    "34x114": 1,
-    "14x14": 7,
-    "11x8": 1,
-    "21x21": 1,
-    "19x63": 1,
-    "19x19": 7,
-    "23x164": 2
+    "24x296": 1,
+    "24x24": 1,
+    "28x28": 9,
+    "20x380": 7,
+    "22x380": 10,
+    "32x32": 1,
+    "28x278": 1
    },
    "samples": [
-    "/home/hbohlen/nix",
-    "New chat: nix",
-    "Chat actions: nix"
+    "(unlabelled)",
+    "Collapse Threads section",
+    "Message actions"
    ],
-   "maxFb": 358
+   "maxFb": 1301
   }
  }
 }

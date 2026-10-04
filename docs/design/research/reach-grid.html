@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>bb reach grid</title>
+<style>
+  :root {
+    --ink: #111;
+    --paper: #fff;
+    --grid: #c9ccd1;
+    --grid-strong: #6b7280;
+    --mark: #b91c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--paper); color: var(--ink);
+    font: 400 16px/1.35 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior: none;
+  }
+  body { display: flex; flex-direction: column; touch-action: manipulation; overflow: hidden; }
+
+  header {
+    padding: max(8px, env(safe-area-inset-top)) 12px 6px;
+    border-bottom: 1px solid var(--grid);
+    flex: 0 0 auto;
+  }
+  h1 { font-size: 15px; margin: 0 0 2px; font-weight: 650; letter-spacing: -0.01em; }
+  header p { margin: 0; font-size: 12.5px; color: #444; }
+
+  main { flex: 1 1 auto; display: grid; place-items: stretch; padding: 4px 0 0; }
+
+  #grid {
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    grid-template-rows: 22px 1fr;
+  }
+  .corner, .top, .left, .canvas { position: relative; }
+  .corner { grid-area: 1 / 1; }
+  .top { grid-area: 1 / 2; border-bottom: 1px solid var(--grid); }
+  .left { grid-area: 2 / 1; border-right: 1px solid var(--grid); }
+  .canvas { grid-area: 2 / 2; touch-action: none; cursor: crosshair; }
+
+  .tick { position: absolute; font-size: 10.5px; color: var(--grid-strong); font-variant-numeric: tabular-nums; }
+  .tick.top { top: 3px; transform: translateX(-50%); }
+  .tick.left { left: 3px; transform: translateY(-50%); }
+  .tick.top.first { transform: none; }
+  .tick.left.first { transform: none; }
+
+  .line { position: absolute; background: var(--grid); }
+  .line.v { width: 1px; top: 0; bottom: 0; }
+  .line.h { height: 1px; left: 0; right: 0; }
+  .line.accent { background: var(--grid-strong); }
+
+  #marks { position: absolute; inset: 0; pointer-events: none; }
+  .mark {
+    position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px;
+    border: 2px solid var(--mark); border-radius: 50%;
+    background: rgba(185, 28, 28, 0.08);
+  }
+  .mark span {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    font-size: 12px; font-weight: 650; color: var(--mark);
+  }
+
+  #probe {
+    position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px;
+    border: 2px solid #1d4ed8; border-radius: 50%; background: rgba(29, 78, 216, 0.12);
+    pointer-events: none; display: none;
+  }
+
+  footer {
+    flex: 0 0 auto;
+    border-top: 1px solid var(--grid);
+    padding: 8px 12px max(8px, env(safe-area-inset-bottom));
+    font-size: 12.5px;
+  }
+  #readout { font-variant-numeric: tabular-nums; min-height: 34px; }
+  #readout b { font-size: 15px; }
+  button {
+    font: inherit; font-weight: 600; color: var(--paper); background: var(--ink);
+    border: 0; border-radius: 9px;
+    /* 44px minimum target, per the constraint this whole effort is about.
+       The measuring instrument should not commit the defect it measures. */
+    min-height: 44px; min-width: 44px; padding: 10px 16px; margin: 0 8px 0 0;
+  }
+  button:active { background: #333; }
+  #status { margin-top: 4px; color: #444; font-size: 12px; }
+  #status.err { color: var(--mark); font-weight: 600; }
+  #status.ok { color: #15803d; font-weight: 600; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Thumb-reach grid</h1>
+  <p>Hold the phone the way you actually hold it in bed, one hand, lying down. Drag the blue circle to the highest point your thumb reaches without shifting your hand. Then to the furthest left and right at that height.</p>
+</header>
+
+<main>
+  <div id="grid">
+    <div class="corner"></div>
+    <div class="top" id="top"></div>
+    <div class="left" id="left"></div>
+    <div class="canvas" id="canvas">
+      <div id="marks"></div>
+      <div id="probe"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div id="readout">Drag inside the grid to mark a point.</div>
+  <div>
+    <button id="copy">Copy result</button>
+    <button id="reset">Clear marks</button>
+  </div>
+  <div id="status">Viewport 0 x 0</div>
+</footer>
+
+<script>
+(() => {
+  const STEP_X = 20, STEP_Y = 20;
+  const MARKS = new Set();
+
+  const canvas = document.getElementById('canvas');
+  const top = document.getElementById('top');
+  const left = document.getElementById('left');
+  const marks = document.getElementById('marks');
+  const probe = document.getElementById('probe');
+  const readout = document.getElementById('readout');
+  const status = document.getElementById('status');
+
+  const vw = () => window.innerWidth;
+  const vh = () => window.innerHeight;
+
+  // Marks are stored in grid-local coordinates, because the grid's top-left is
+  // its own 0,0. Distance from the bottom of the *screen* has to add the grid's
+  // offset, or a point at the top of the grid reads as 862px of reach when it
+  // is really at the top of the viewport.
+  const gridTop = () => canvas.getBoundingClientRect().top;
+  const fromScreenBottom = (y) => vh() - (gridTop() + y);
+
+  function drawAxis(el, count, step, px, vertical) {
+    el.textContent = '';
+    const n = Math.floor(px / step);
+    for (let i = 0; i <= n; i++) {
+      const t = document.createElement('span');
+      const v = i * step;
+      t.className = 'tick ' + (vertical ? 'left' : 'top') + (i === 0 ? ' first' : '');
+      t.textContent = String(v);
+      // The label centres on its line, so the last one overflows the axis and
+      // gives the document a horizontal scrollbar. A grid that scrolls
+      // horizontally would report positions that do not match the CSS pixels
+      // the reach budget is measured in, so the label is nudged back inside.
+      if (vertical) {
+        t.style.top = v + 'px';
+        if (i === n) t.style.transform = 'translateY(-50%) translateX(-100%)';
+      } else {
+        t.style.left = v + 'px';
+        if (i === n) t.style.transform = 'translateX(-50%) translateX(-100%)';
+      }
+      el.appendChild(t);
+      const line = document.createElement('div');
+      line.className = 'line ' + (vertical ? 'h' : 'v') + (i % 5 === 0 ? ' accent' : '');
+      if (vertical) { line.style.top = v + 'px'; } else { line.style.left = v + 'px'; }
+      el.appendChild(line);
+    }
+  }
+
+  function draw() {
+    const cw = canvas.clientWidth, ch = canvas.clientHeight;
+    drawAxis(top, 0, STEP_X, cw, false);
+    drawAxis(left, 0, STEP_Y, ch, true);
+    status.className = '';
+    status.textContent = 'Viewport ' + vw() + ' x ' + vh()
+      + '  |  grid 1:1 with CSS px'
+      + '  |  origin at top-left of grid';
+    render();
+  }
+
+  function key(x, y) { return Math.round(x) + ',' + Math.round(y); }
+
+  function render() {
+    marks.textContent = '';
+    for (const k of MARKS) {
+      const [x, y] = k.split(',').map(Number);
+      const d = document.createElement('div');
+      d.className = 'mark';
+      d.style.left = x + 'px';
+      d.style.top = y + 'px';
+      const s = document.createElement('span');
+      s.textContent = String(marks.children.length + 1);
+      d.appendChild(s);
+      marks.appendChild(d);
+    }
+    const list = [...MARKS].map(k => {
+      const [x, y] = k.split(',').map(Number);
+      return { x, y, fromBottom: Math.round(fromScreenBottom(y)) };
+    });
+    if (!list.length) {
+      readout.textContent = 'Drag inside the grid to mark a point.';
+      return;
+    }
+    const minBottom = Math.max(...list.map(p => p.fromBottom));
+    readout.innerHTML = 'Marks: ' + list.length
+      + '  |  highest reach = <b>' + Math.round(minBottom) + ' px</b> from bottom edge'
+      + '  |  grid point (' + Math.round(list[0].x) + ', ' + Math.round(list[0].y) + ')';
+  }
+
+  function pointFromEvent(e) {
+    const r = canvas.getBoundingClientRect();
+    const cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+    return { x: Math.max(0, Math.min(r.width, cx)), y: Math.max(0, Math.min(r.height, cy)) };
+  }
+
+  let dragging = false;
+
+  function start(e) {
+    dragging = true;
+    const p = pointFromEvent(e);
+    probe.style.display = 'block';
+    probe.style.left = p.x + 'px';
+    probe.style.top = p.y + 'px';
+    e.preventDefault();
+  }
+
+  function move(e) {
+    if (!dragging) return;
+    const p = pointFromEvent(e);
+    probe.style.left = p.x + 'px';
+    probe.style.top = p.y + 'px';
+    e.preventDefault();
+  }
+
+  function end(e) {
+    if (!dragging) return;
+    dragging = false;
+    probe.style.display = 'none';
+    const p = pointFromEvent(e.changedTouches ? e.changedTouches[0] : e);
+    MARKS.add(key(p.x, p.y));
+    render();
+    e.preventDefault();
+  }
+
+  canvas.addEventListener('touchstart', start, { passive: false });
+  canvas.addEventListener('touchmove', move, { passive: false });
+  canvas.addEventListener('touchend', end, { passive: false });
+  canvas.addEventListener('mousedown', start);
+  window.addEventListener('mousemove', move);
+  window.addEventListener('mouseup', end);
+
+  document.getElementById('reset').addEventListener('click', () => {
+    MARKS.clear(); render();
+  });
+
+  document.getElementById('copy').addEventListener('click', async () => {
+    const list = [...MARKS].map(k => {
+      const [x, y] = k.split(',').map(Number);
+      return { x: Math.round(x), y: Math.round(y),
+               fromBottom: Math.round(fromScreenBottom(y)) };
+    });
+    if (!list.length) { status.className = 'err'; status.textContent = 'No marks yet.'; return; }
+    const payload = {
+      device: navigator.userAgent,
+      viewport: { width: vw(), height: vh(), dpr: window.devicePixelRatio,
+                  maxTouchPoints: navigator.maxTouchPoints },
+      marks: list,
+      highestFromBottom: Math.max(...list.map(p => p.fromBottom))
+    };
+    const text = JSON.stringify(payload, null, 2);
+    try {
+      await navigator.clipboard.writeText(text);
+      status.className = 'ok'; status.textContent = 'Copied. Paste it back to me.';
+    } catch {
+      status.className = 'err';
+      status.textContent = 'Clipboard blocked. Long-press the text below instead.';
+      readout.textContent = text;
+    }
+  });
+
+  window.addEventListener('resize', draw);
+  window.addEventListener('orientationchange', draw);
+  draw();
+})();
+</script>
+</body>
+</html>

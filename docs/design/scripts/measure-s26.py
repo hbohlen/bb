@@ -1,33 +1,32 @@
-"""Re-measure bb's compact-viewport controls on the Galaxy S26 Ultra.
+"""Measure bb's compact-viewport controls on the Galaxy S26 Ultra, in one pass.
 
-The device is a Samsung Galaxy S26 Ultra: 1440 x 3120 native, 500 PPI, which
-Android maps to a 560dpi bucket, so Chrome reports devicePixelRatio 3.5 and a CSS
-viewport of 412 x 891. The previous pass used 412 x 915, which is 24 px too tall,
-and had no source to check the hardcoded sizes against.
-
-Touch emulation is forced rather than relying on a device profile, because a
-profile alone leaves navigator.maxTouchPoints at 0 and bb's own
-`(width<48rem) and (pointer:coarse)` query never fires. Without that query the
-measurement is a desktop size wearing a mobile user agent.
+Sets device metrics and touch emulation on the same connection it measures
+through. That ordering is the whole point of this script: Chrome's
+`Emulation.setTouchEmulationEnabled` is per CDP session state that a later
+connection does not inherit, so a probe on a fresh connection measures
+`(pointer: coarse)` as false, bb's coarse-pointer overrides never fire, and every
+control reports its desktop size. Two earlier passes produced 28x28 and 20x20
+from exactly that mistake.
 
 Run: python docs/design/scripts/measure-s26.py
 """
 
 import json
+import sys
 import urllib.request
 
 import websocket
 
 
-BROWSER_CDP = "ws://127.0.0.1:40673/devtools/browser/20e7bf83-d0a3-4289-bbfd-9044bddf76a0"
-PAGE_LIST = "ws://127.0.0.1:40673/json"
+PAGE_LIST = "http://127.0.0.1:40673/json"
 
-# Native panel divided by the DPR Chrome derives from the 560dpi density bucket.
+# Native panel 1440x3120 at 500 PPI lands in Android's 560dpi bucket, so Chrome
+# derives devicePixelRatio 3.5 and a CSS viewport of 412x891.
 DEVICE = {"width": 412, "height": 891, "deviceScaleFactor": 3.5, "mobile": True}
 
 
 def page_ws() -> str:
-    with urllib.request.urlopen(PAGE_LIST.replace("ws://", "http://")) as resp:
+    with urllib.request.urlopen(PAGE_LIST) as resp:
         for t in json.load(resp):
             if t.get("type") == "page" and t.get("webSocketDebuggerUrl"):
                 return t["webSocketDebuggerUrl"]
@@ -36,8 +35,6 @@ def page_ws() -> str:
 
 class CDP:
     def __init__(self, url: str):
-        # suppress_origin: Chrome's CDP rejects a websocket carrying an Origin
-        # header unless the browser was launched with --remote-allow-origins.
         self.ws = websocket.create_connection(url, timeout=30, suppress_origin=True)
         self.n = 0
 
@@ -68,7 +65,8 @@ PROBE = r"""
       tid: b.getAttribute("data-testid") || "-",
       w: Math.round(r.width), h: Math.round(r.height),
       fb: Math.round(innerHeight - r.bottom),
-      literal: cls.filter(c => /\[/.test(c)).join(" "),
+      coarseOverride: cls.some(c => /pointer-coarse/.test(c)),
+      literal: cls.filter(c => /\[/.test(c) && !/pointer-coarse/.test(c)).join(" "),
     };
   }).filter(x => x.w > 0 && x.h > 0);
 
@@ -97,6 +95,7 @@ PROBE = r"""
              atLeast44: rows.filter(x => x.h >= 44).length,
              shell: shell.length, shellUnder44: shell.filter(x => x.h < 44).length,
              plugin: plugin.length, pluginUnder44: plugin.filter(x => x.h < 44).length,
+             hasCoarseOverride: rows.filter(x => x.coarseOverride).length,
              hardcodedLiteral: rows.filter(x => x.literal).length},
     shellSizes: tally(shell),
     topBand: rows.filter(x => x.fb > 600).map(x => [x.l, x.w + "x" + x.h, x.fb]),
@@ -118,15 +117,13 @@ def main() -> None:
     cdp.send("Emulation.setTouchEmulationEnabled", {"enabled": True, "maxTouchPoints": 5})
     cdp.send("Emulation.setEmitTouchEventsForMouse",
              {"enabled": True, "configuration": "mobile"})
-    # Wait for the load event rather than reloading blindly: a bare
-    # location.reload() destroys the execution context the next evaluate()
-    # targets, so the probe lands before the app has mounted.
-    cdp.eval("new Promise(r => { if (document.readyState === 'complete') r(1);"
-             " else addEventListener('load', () => r(1), {once: true});"
-             " setTimeout(() => r(0), 8000); })")
-    cdp.eval("new Promise(r => setTimeout(r, 4000))")
-    print(cdp.eval(PROBE))
-    print(f"\nBROWSER_CDP was {BROWSER_CDP}", file=__import__("sys").stderr)
+    cdp.eval("new Promise(r => setTimeout(r, 800))")
+    report = json.loads(cdp.eval(PROBE))
+    if not report["viewport"]["pointerCoarse"]:
+        raise SystemExit("pointer:coarse is false; the measurement would be a "
+                         "desktop size wearing a mobile user agent")
+    print(json.dumps(report, indent=1))
+    print(f"\nmeasured {report['viewport']}", file=sys.stderr)
 
 
 if __name__ == "__main__":
